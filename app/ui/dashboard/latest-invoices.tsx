@@ -2,18 +2,17 @@
  * @Description: 
  * @author: gaohuan
  * @Date: 2024-06-19 16:41:51
- * @LastEditTime: 2024-06-20 15:57:43
+ * @LastEditTime: 2024-06-20 16:28:13
  */
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { LatestInvoice } from '@/app/lib/definitions';
-export default async function LatestInvoices({
-  latestInvoices,
-}: {
-  latestInvoices: LatestInvoice[];
-}) {
+import { fetchLatestInvoices } from '@/app/lib/data';
+
+export default async function LatestInvoices() {
+  const latestInvoices = await fetchLatestInvoices(); // 在组件内获取数据
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>

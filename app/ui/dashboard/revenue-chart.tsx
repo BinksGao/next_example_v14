@@ -2,12 +2,12 @@
  * @Description: 
  * @author: gaohuan
  * @Date: 2024-06-19 16:41:51
- * @LastEditTime: 2024-06-20 15:18:10
+ * @LastEditTime: 2024-06-20 16:26:42
  */
 import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
-import { Revenue } from '@/app/lib/definitions';
+import { fetchRevenue } from '@/app/lib/data';
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -15,11 +15,8 @@ import { Revenue } from '@/app/lib/definitions';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function RevenueChart({
-  revenue,
-}: {
-  revenue: Revenue[];
-}) {
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue(); // 在组件内获取数据
   const chartHeight = 350;
   // NOTE: comment in this code when you get to this point in the course
 
